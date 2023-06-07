@@ -11,16 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('motorcycles', function (Blueprint $table) {
+        Schema::create('vehicle_supplies', function (Blueprint $table) {
             $table->id();
             $table->integer('vehicle_id')->unsigned();
             $table->foreign('vehicle_id')
                   ->references('id')
                   ->on('vehicles')
                   ->onDelete('cascade');
-            $table->string('machine');
-            $table->string('suspension_type');
-            $table->string('transmission_type');
+            $table->integer('quantity');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('motorcycles');
+        Schema::dropIfExists('vehicle_supplies');
     }
 };

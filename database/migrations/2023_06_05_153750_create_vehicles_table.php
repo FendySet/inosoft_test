@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('release_year');
             $table->string('color');
             $table->string('price');
-            $table->integer('stock');
+            $table->integer('stock')->default(0);
             $table->timestamps();
         });
     }

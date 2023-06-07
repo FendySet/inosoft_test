@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Vehicle extends Model
 {
     use HasFactory;
+
+    protected $guarded = ['id'];
+
+    public function car()
+    {
+        return $this->hasOne(Car::class);
+    }
+
+    public function motorcycle()
+    {
+        return $this->hasOne(Motorcycle::class);
+    }
 }
